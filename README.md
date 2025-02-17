@@ -18,7 +18,7 @@ This project classifies emotions from speech using an **LSTM model** trained on 
 ## 🚀 Installation
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/yourusername/speech-emotion-recognition.git
+git clone https://github.com/Asifkletech/Speech_Recognition_and_Emotion_detection.git
 cd speech-emotion-recognition
 ```
 
@@ -36,7 +36,7 @@ pip install -r requirements.txt
 - **CREMA-D**  
 
 ### Total emotions classified:
-🎭 **Angry, Disgust, Fear, Happy, Neutral, Sad, Surprise**
+🎭 **Angry, Disgust, Fear, Happy, Neutral, Sad, Surprise,Calm**
 
 ---
 
@@ -90,15 +90,20 @@ Predicted Emotion: happy
 
 ## 📁 Project Structure
 ```
-📂 speech-emotion-recognition
-│── 📂 dataset
-│── 📂 models
-│── 📂 scripts
-│   │── train_model.py
-│   │── test_model.py
-│── 📜 README.md
-│── 📜 requirements.txt
-```
+Speech-Emotion-Recognition/
+│── dataset/               # (Optional) Store small samples of datasets if legal
+│── src/
+│   ├── data_preprocessing.py  # Script for feature extraction and augmentation
+│   ├── train_model.py         # Script to train the model
+│   ├── test_model.py           # Script for testing/inferencing
+│── models/
+│   ├── speech_emotion_recognition_with_augmentation.h5  # Saved trained model
+│── notebooks/
+│── requirements.txt           # Required Python libraries
+│── app.py                     # Deployment script (Flask/FastAPI)
+│── README.md                  # Project documentation
+│── .gitignore                  # Ignore unnecessary files
+
 
 ---
 
