@@ -1,7 +1,7 @@
 
 # 🎤 Speech Emotion Recognition (SER) with LSTM
 
-This project classifies emotions from speech using an **LSTM model** trained on datasets like **RAVDESS, TESS, SAVEE, and CREMA-D**. The model takes **MFCC features** extracted from audio files and predicts emotions.
+This project classifies emotions from speech using an **LSTM model** trained on datasets like **RAVDESS, TESS, SAVEE, and CREMA-D**.The model takes **MFCC features** extracted from audio files and predicts emotions.
 
 ---
 
@@ -107,11 +107,6 @@ Speech-Emotion-Recognition/
 
 ---
 
-## 📜 Requirements
-### 📌 Install required libraries using:
-```bash
-pip install -r requirements.txt
-```
 
 ### Dependencies:
 - **TensorFlow** (for LSTM model)  
