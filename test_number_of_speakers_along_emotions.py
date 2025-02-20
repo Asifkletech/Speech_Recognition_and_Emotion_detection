@@ -7,14 +7,19 @@ import torch
 from keras.models import load_model
 from sklearn.preprocessing import LabelEncoder
 from pyannote.audio import Pipeline
-from google.colab import userdata
 from pydub import AudioSegment
 
-# Load Hugging Face Token
-HF_TOKEN = userdata.get("HF_TOKEN")
+# Load Hugging Face Token (Set this in your environment variables)
+HF_TOKEN = os.getenv("HF_TOKEN")
+if HF_TOKEN is None:
+    raise ValueError("Hugging Face token (HF_TOKEN) is not set. Set it as an environment variable.")
 
 # Load trained emotion recognition model
-model = load_model('/content/speech_emotion_recognition_model_tess.h5')
+MODEL_PATH = r"E:\git_speech_emotion\Speech_Recognition_and_Emotion_detection\models\speech_emotion_recognition_with_augmentation.h5"
+if not os.path.exists(MODEL_PATH):
+    raise FileNotFoundError(f"Model file not found: {MODEL_PATH}")
+
+model = load_model(MODEL_PATH)
 
 # Load Label Encoder
 emotions = ['angry', 'disgust', 'fear', 'happy', 'neutral', 'pleasant_surprise', 'sad']
@@ -98,6 +103,12 @@ def process_audio(input_audio_path):
     for speaker, emotions in speaker_emotions.items():
         print(f"Speaker {speaker}: {emotions}")
 
-# Run the function on an input file
-audio_file = "path_to_your_audio_file.wav"  # Change to your file path
-process_audio(audio_file)
+if __name__ == "__main__":
+    AUDIO_FILE = r"E:\git_speech_emotion\1001_DFA_ANG_XX.wav"  # Change to your file path
+
+    if not os.path.exists(AUDIO_FILE):
+        raise FileNotFoundError(f"Audio file not found: {AUDIO_FILE}")
+
+    print("Processing audio file...")
+    process_audio(AUDIO_FILE)
+    print("Processing complete.")
